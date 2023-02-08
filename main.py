@@ -7,7 +7,7 @@ import os
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 client = discord.Client(intents=discord.Intents.all())
 
-load_dotenv(r'C:\Users\ahmet\Documents\GitHub\python-projects\discord bot\main.env')
+load_dotenv(r'C:\Users\ahmet\Documents\GitHub\discord-bot\main.env')
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 
 @client.event
