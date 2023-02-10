@@ -1,4 +1,5 @@
-import discord 
+import discord
+import random
 from discord.ext import commands
 from decouple import config
 from dotenv import load_dotenv
@@ -36,5 +37,14 @@ async def say(ctx, text):
 async def clear(ctx, amount = 5):
     await ctx.channel.purge(limit=amount)
     
+@bot.command()
+async def avatar(ctx, *,  avamember : discord.Member=None):
+    userAvatarUrl = avamember.avatar
+    await ctx.send(userAvatarUrl)
+    
+@bot.command()
+async def ship(ctx, avamember1 : discord.Member=None,  avamember2 : discord.Member=None):
+	rate = random.random() * 100
+	await ctx.send(f"Ship rate is: {rate}")
 
 bot.run(DISCORD_TOKEN)
