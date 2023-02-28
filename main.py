@@ -46,4 +46,16 @@ async def ship(ctx, avamember1 : discord.Member=None,  avamember2 : discord.Memb
 	rate = random.random() * 100
 	await ctx.send(f"Ship rate is: {rate}")
 
+@bot.command()
+async def unban(ctx, *, member):
+
+	banned_users = ctx.guild.bans()
+	async for ban_entry in banned_users:
+		user = ban_entry.user
+
+		if str(user) == member:
+			await ctx.guild.unban(user)
+			await ctx.channel.send("The user is unbanned")
+
+
 bot.run(DISCORD_TOKEN)
